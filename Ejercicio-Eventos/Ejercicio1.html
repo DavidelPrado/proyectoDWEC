@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eventos</title>
+        <style>
+            #amarillo{
+                background-color: yellow;
+                width: 70px;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="amarillo">TE SIGO</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque ratione exercitationem, dolores mollitia, ea molestias eveniet repellendus quod dolorem alias minus quia adipisci unde inventore autem modi commodi voluptas?</p>
+        
+        <script>
+            
+            let p=document.getElementsByTagName("p");
+            for(const parrafo of p){
+                parrafo.addEventListener("mousemove", cord);
+            }
+
+            function cord(evento){
+                let x=evento.clientX+"px";
+                let y=evento.clientY+"px";
+
+                let amarillo=document.getElementById("amarillo");
+                amarillo.style.left=x;
+                amarillo.style.top=y;
+            }
+        </script>
+    </body>
+</html>

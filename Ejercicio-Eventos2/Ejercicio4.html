@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Eventos2</title>
+        <style>
+            h1{
+                color:teal;
+                text-align: center;
+                font-weight: 700;
+            }
+            #nTarea{
+                border-color: brown;
+                border-radius: 5px 0px 0px 5px;
+                width: 80vw;
+                height: 30px;
+                margin: 0px;
+            }
+            #btn{
+                color: white;
+                background-color:brown;
+                border-radius: 0px 5px 5px 0px;
+                border: 1px solid brown;
+                width: 80px;
+                height: 36px;
+                margin-left: 0px;
+                font-weight: bold;
+                position: absolute;
+            }
+            li{
+                color: teal;
+            }
+            #btnQuitar{
+                color: white;
+                background-color:brown;
+                border-radius: 10px;
+                border: 1px solid brown;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Lista de tareas</h1>
+        <input type="text" id="nTarea" placeholder="Nueva tarea"></input>
+        <button type="button" id="btn">+</button>
+        <ul id="ul"></ul>
+
+        <script>
+            var tarea=document.getElementById("nTarea");
+            var btn=document.getElementById("btn");
+            var ul=document.getElementById("ul");
+            var li=document.getElementsByTagName("li");
+            
+            btn.addEventListener("click", function(){
+                if(tarea.value!=""){
+                    let nuevoLi=document.createElement("li");
+                    nuevoLi.textContent=tarea.value+" ";
+                    ul.appendChild(nuevoLi);
+
+                    let quitar=document.createElement("button");
+                    quitar.textContent="quitar";
+                    quitar.setAttribute("id", "btnQuitar");
+                    nuevoLi.appendChild(quitar);
+
+                    quitar.addEventListener("click", eliminar);
+                    nuevoLi.addEventListener("click", primero);
+                }
+            });
+
+            function eliminar(evento){
+                ul.removeChild(evento.target.parentElement);
+                evento.stopPropagation();
+            }
+
+            function primero(event){
+                ul.insertBefore(event.target, li[0]);
+            }
+        </script>
+    </body>
+</html>

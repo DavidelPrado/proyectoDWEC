@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 8 - Herencia</title>
+    </head>
+    <body>
+        <script>
+            //Ejercicio 1
+            class Ordenador{
+                constructor(marca, modelo, ram=4, capacidad=512, pulgadas=17){
+                    this.marca=marca;
+                    this.modelo=modelo;
+                    this.ram=ram;
+                    this.capacidad=capacidad;
+                    this.pulgadas=pulgadas;
+                }
+
+                toString(){
+                    return (this.marca+", "+this.modelo+", "+this.ram+", "+this.capacidad+", "+this.pulgadas);
+                }
+            }
+
+            class Portatil extends Ordenador{
+                constructor(marca, modelo, ram, capacidad=256, pulgadas=12, autonomia=4){
+                    super (marca, modelo, ram, capacidad, pulgadas);
+                    this.autonomia=autonomia;
+                }
+
+                toString(){
+                    return (super.toString()+", "+this.autonomia);
+                }
+            }
+
+            var ordenador=new Ordenador("Marca","323");
+            console.log(ordenador.toString());
+
+            var portatil=new Portatil("Marca","323");
+            console.log(portatil.toString());
+
+
+
+
+
+
+
+            
+        </script>
+    </body>
+</html>

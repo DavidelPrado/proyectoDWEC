@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Document Object Model</title>
+        <script>
+            window.addEventListener("load", inicio);
+
+            function inicio(){
+                let numero=prompt("Numero del 1 al 10");
+                while(numero<0 || numero>10 || numero==null){
+                    let numero=prompt("Numero del 1 al 10");
+                }
+                let texto=prompt("Texto a introducir");
+
+                if(numero!=null && texto!=null){
+                    let li=document.getElementsByTagName("li");
+                    let nuevoLi=document.createElement("li");
+                    nuevoLi.innerHTML=texto;
+                    nuevoLi.style.fontWeight="bold";
+                    let ol=document.getElementsByTagName("ol");
+                    let sig=li[numero-1];
+                    ol[0].insertBefore(nuevoLi, sig);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <ol>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ad ullam doloribus deserunt dolor voluptatem expedita cupiditate nostrum quisquam enim. Corporis nihil laudantium molestiae eos ea repudiandae unde pariatur odit.</li>
+            <li>Deserunt doloremque consequuntur ad repudiandae eos perferendis, sequi animi placeat soluta nisi ut odio recusandae, quisquam veniam odit perspiciatis possimus? Ducimus, obcaecati nulla libero eligendi sequi inventore sit exercitationem reprehenderit?</li>
+            <li>Nihil hic, voluptate illum vitae odio magnam quam quas molestiae laborum qui quod cupiditate quasi repellendus ut nulla a amet pariatur dicta dignissimos aliquid impedit. Facere quos eligendi culpa quibusdam?</li>
+            <li>Magni aut, fuga, molestias aperiam ut tempore excepturi quo repudiandae esse voluptatum obcaecati? Quam laboriosam sapiente architecto accusantium nam eius eos ullam recusandae, velit, a adipisci vel laborum asperiores aliquid.</li>
+            <li>Reiciendis enim dolorem unde saepe vero! Quod laborum totam aperiam ducimus at nemo nam et dolore reprehenderit corporis consectetur cumque perferendis corrupti, alias natus dolorum impedit quae nulla voluptate illo!</li>
+            <li>Maxime ipsum ut eaque voluptate provident quo unde, quos optio asperiores voluptas accusantium? Iure dolorem blanditiis animi dolores perferendis, soluta minus aperiam consectetur, in eius, aliquid libero saepe inventore modi!</li>
+            <li>Earum reiciendis beatae porro repudiandae commodi provident voluptates voluptas, cupiditate facilis dolorum ut recusandae rerum. Voluptate doloribus recusandae omnis a at ducimus dolores repellendus quidem. Omnis quae non nobis praesentium!</li>
+            <li>Quidem corporis doloremque quae reiciendis excepturi consequuntur sed corrupti aliquam cupiditate quos mollitia praesentium voluptas minus, id tempora qui magnam provident necessitatibus maiores dolorem aperiam nemo autem quam! Facilis, earum?</li>
+            <li>Amet libero explicabo unde incidunt ut maxime, saepe molestiae aliquam delectus laborum hic, labore sed fugiat sequi, adipisci quas ea maiores! Est magnam voluptatem magni ipsa dolor sapiente qui dolore.</li>
+        </ol>
+    </body>
+</html>

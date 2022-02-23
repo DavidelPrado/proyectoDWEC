@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Document Object Model</title>
+        <script>
+            window.addEventListener("load", inicio);
+
+            let i=0;
+            var aPalabras=["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"];
+            
+            function inicio(){
+                espera=setInterval(palabras, 1000);
+            }
+
+            function palabras(){
+                let nuevoLi=document.createElement("li");
+                nuevoLi.innerHTML=aPalabras[i];
+                let ol=document.getElementsByTagName("ol");
+                ol[0].appendChild(nuevoLi);
+                i++;
+                if(i==10){
+                    clearInterval(espera);
+                    setTimeout(ordenar, 3000);
+                }
+            }
+
+            function ordenar(){
+                let salida=confirm("Quieres ordenar las palabras");
+
+                if(salida){
+                    let ol=document.getElementsByTagName("ol");
+                    let li=document.getElementsByTagName("li");
+                    for (let j=0; j<10; j++) {
+                        ol[0].removeChild(ol[0].firstElementChild);
+                    }
+                    aPalabras=aPalabras.sort();
+                    console.log(aPalabras);
+                    
+                    for (let x=0; x<10; x++) {
+                        let nuevoLi=document.createElement("li");
+                        nuevoLi.innerHTML=aPalabras[x];
+                        ol[0].appendChild(nuevoLi);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <ol>
+
+        </ol>
+    </body>
+</html>

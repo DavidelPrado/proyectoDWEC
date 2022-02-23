@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eventos</title>
+        <style>
+            div{
+                width: 50vw;
+                height: 50vh;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+
+        <script>
+            let div=document.getElementsByTagName("div")[0];
+            div.addEventListener("mouseover", verde);
+            div.addEventListener("mousedown", clic);
+            div.addEventListener("mouseup", verde);
+
+            div.addEventListener("mouseleave", function salir(){
+                div.style.backgroundColor="";
+            });
+
+            div.addEventListener("contextmenu", function menu(evento){
+                evento.preventDefault();
+            });
+
+            function verde(){
+                div.style.backgroundColor="green";
+            }
+
+            function clic(evento){
+                if(evento.button==0){
+                    div.style.backgroundColor="red";
+                }else{
+                    if(evento.button==2){
+                        div.style.backgroundColor="blue";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

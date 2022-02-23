@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            table{
+                border-collapse: collapse;
+                width: 100%;
+            }
+            td{
+                border-style: solid;
+                padding: 10px;
+            }
+            body{
+                background-color: #132762;
+            }
+        </style>
+        <title>Ejercicio1</title>
+    </head>
+    <body>
+        <script>
+            document.write("<table>");
+                var i=0;
+                var j=0;
+
+                while(j<10){
+                    document.write("<tr>");
+                    while(i<6){
+                        document.write("<td></td>");
+                        i++;
+                    }
+                    document.write("</tr>");
+                    j++
+                    i=0;
+                }
+
+            document.write("</table>");
+        </script>
+    </body>
+</html>

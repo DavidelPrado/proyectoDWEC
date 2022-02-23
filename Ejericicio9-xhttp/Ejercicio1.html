@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 9-1 - Promesas</title>
+        <style>
+            .entrada{
+                text-align: center;
+            }
+            p{
+                color: cadetblue;
+                font-family: sans-serif;
+            }
+            #contenedor{
+                border: 1px solid black;
+                display: none;
+                margin-top: 10px;
+                text-align: center;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="entrada">
+            <input type="text" id="nArchivo">
+            <button type="button" id="btnCargar">Cargar texto</button>
+        </div>
+        
+        <div id="contenedor">
+            <p id="salida"></p>
+            <button type="button" id="btnCerrar">Cerrar contenedor</button>
+        </div>
+        
+        <script>
+            var nArchivo=document.getElementById("nArchivo");
+            var btnCargar=document.getElementById("btnCargar");
+            var contenedor=document.getElementById("contenedor");
+            var btnCerrar=document.getElementById("btnCerrar");
+            var salida=document.getElementById("salida")
+
+            btnCargar.addEventListener("click", function(){
+                if(nArchivo.value!=""){
+                    /*let miPromesa=new Promise(function(resolve, reject){
+                        var xhttp=new XMLHttpRequest();
+
+                        xhttp.onreadystatechange=function(){
+                            if(this.readyState==4 && this.status==200){
+                                resolve(this.responseText);
+                            }else{
+                                if(this.readyState==4 && this.status!=200){
+                                    reject(this.statusText);
+                                }
+                            }
+                        }
+                        
+                        xhttp.open("GET", "http://daw205.sauces.local/proyectoDWEC/texto/"+nArchivo.value+".txt");
+                        xhttp.send();
+                    });*/
+
+                    var input=nArchivo.value;
+
+                    fetch(input+".txt")
+                    .then((response)=>{
+                        if(response.ok){
+                            return response.text();
+                        }else{
+                            throw Error(response.statusText);
+                        }
+                    })
+                    .then((respuesta)=>{
+                        contenedor.style.display="block";
+                        salida.innerHTML=respuesta;
+                    }).catch((error)=>{
+                        contenedor.style.display="block";
+                        salida.innerHTML=error;
+                    });
+
+                    /*
+                    miPromesa.then((respuesta)=>{
+                        contenedor.style.display="block";
+                        salida.innerHTML=respuesta;
+                    }).catch((error)=>{
+                        contenedor.style.display="block";
+                        salida.innerHTML=error;
+                    });*/
+                }
+            });
+
+            btnCerrar.addEventListener("click", function(){
+                contenedor.style.display="none";
+            });
+
+            
+        </script>
+    </body>
+</html>

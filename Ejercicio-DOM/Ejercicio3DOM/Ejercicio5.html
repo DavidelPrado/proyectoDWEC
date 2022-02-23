@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Document Object Model</title>
+        <script>
+            window.addEventListener("load", inicio);
+
+            function inicio(){
+                if(!document.cookie){
+                    if(confirm("Esta pagina utiliza cookies")){
+                        document.cookie="cookie=si";
+                        let fecha=new Date();
+                        let fechaCad=new Date(fecha.getTime()+365*24*60*60*1000);
+                        document.cookie=`visitas=1; expires=${fechaCad.toUTCString()}`;
+                        document.write("visitas=1");
+                    }else{
+                        document.cookie="cookie=no";
+                    }
+                }else{
+                    let aCookies=document.cookie.split("=");
+                    let no=aCookies[1].split(";");
+                    if(no[0]!="no"){
+                        let visitas=aCookies[2];
+                        document.cookie=`visitas=${++visitas}`;
+                        document.write("visitas="+visitas);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

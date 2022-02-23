@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 2 - Conjuntos y Mapas</title>
+    </head>
+    <body>
+        <script>
+            /*
+            //CONJUNTOS
+            //Objeto que almacena elementos unicos que no se repiten
+            const conjunto = new Set(["uno", "uno", 2, "tres"]);
+            console.log(conjunto);
+
+            console.log(conjunto.size);
+
+            conjunto.add("cuatro").add(5);
+            console.log(conjunto);
+
+            conjunto.delete("uno");
+            console.log(conjunto);
+
+            console.log(conjunto.has(2));
+
+            //Recorrer el conjunto
+            conjunto.forEach((valor) => {
+                console.log(valor);
+            });
+
+            */
+            //MAPAS
+            //Objeto que almacena claves unicas y sus valores
+            const mapa = new Map();
+            mapa.set(1, "uno");
+            mapa.set(2, "dos");
+            mapa.set("tres", 3);
+
+            console.log(mapa);
+
+            console.log(mapa.size);
+
+            console.log(mapa.get(1));
+
+            console.log(mapa.has(2));
+
+            mapa.delete("tres");
+            console.log(mapa);
+
+            //Recorrer el mapa
+            for(let nombre of mapa){
+                console.log(nombre);
+            }
+
+
+            mapa.forEach((valor, clave) => {
+                console.log(clave+". "+valor)
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 5 - Date</title>
+    </head>
+    <body>
+        <script>
+            //Ejercicio 1
+            /*
+            var dia=new Date(prompt("Inserte fecha de nacimiento(AAAA-MM-DD): "));
+            var semana=["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+
+            while(dia.getFullYear()<=2021){
+                document.write("En "+dia.getFullYear()+" tu cumpleaños es un "+semana[dia.getDay()]+"<br>");
+                dia.setFullYear(dia.getFullYear()+1);
+            }
+            */
+
+            //Ejercicio 2
+            /*
+            var fecha=prompt("AAAA-MM-DD HH:MM:SS");
+
+            if(fecha==null){
+                fecha=new Date();
+            }else{
+                fecha=new Date(fecha);
+            }
+
+            fFecha();
+
+            function fFecha(){
+                var semana=["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+                var aAño=["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+                alert("Hoy es "+semana[fecha.getDay()]+", "+fecha.getDate()+" de "+aAño[fecha.getMonth()]+" de "+fecha.getFullYear()+" y son las "+fecha.getHours()+" horas, "+fecha.getMinutes()+" minutos y "+fecha.getSeconds()+" segundos");
+            }
+            */
+
+            //Ejercicio 3
+            /*
+            var mes=(prompt("Inserte mes:")-1);
+            var año=prompt("Inserte año:");
+            fecha=new Date(año, mes);
+
+            var dia=fecha.getDay();
+            document.write("D L M X J V S <br>");
+
+            for (let i=0;i<7;i++) {
+                if(dia==i){
+                    for(let x=fecha.getDay();x<8-i;x++){
+                        document.write(fecha.getDate()+" ");
+                        fecha.setDate(fecha.getDate()+1);
+                    }
+                    break;
+                }else{
+                    document.write(" - ");
+                }
+            }
+
+            document.write("<br>");
+
+            while(fecha.getMonth()==mes){
+                for(let j=0;j<7;j++) {
+                    if(fecha.getMonth()==mes){
+                        document.write(fecha.getDate()+" ");
+                        fecha.setDate(fecha.getDate()+1);
+                    }else{
+                        document.write(" ");
+                    }
+                }
+                document.write("<br>");
+            }
+            */
+
+            //Ejercicio 4
+            
+            var mes=(prompt("Inserte mes:")-1);
+            const mapa = new Map();
+
+            for(let i=0;i<100;i++){
+                var año=parseInt(Math.random()*(41)+1980);
+                var rMes=parseInt(Math.random()*12);
+                var dia=(parseInt(Math.random()*(30)))+1;
+                
+                var fecha=new Date(año, rMes, dia);
+                mapa.set(i, fecha);
+            }
+
+            mapa.forEach((valor, clave)=>{
+                if(valor.getMonth()==mes){
+                    document.write(clave+". "+valor.getFullYear()+"-"+(valor.getMonth()+1)+"-"+valor.getDate()+"<br>");
+                }
+            });
+            
+        </script>
+    </body>
+</html>

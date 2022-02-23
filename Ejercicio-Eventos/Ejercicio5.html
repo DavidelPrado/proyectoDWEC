@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eventos</title>
+        <style>
+            .capa{
+                width: 50vw;
+                height: 50vh;
+                border: 1px solid black;
+                overflow: scroll;
+                margin: auto;
+            }
+            .boton{
+                font-size: 2rem;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="capa">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, at? Reiciendis eos ab ea. Similique id omnis minima ipsa dolorem maxime repellat, culpa quis maiores dolor deserunt quibusdam voluptatem reprehenderit.</p>
+        </div>
+        
+        <button class="boton">Cerrar</button>
+
+        <script>
+            var capa=document.getElementsByClassName("capa")[0];
+            var boton=document.getElementsByClassName("boton")[0];
+            
+            capa.addEventListener("scroll", function mostrar(){
+                if(capa.scrollTop+capa.clientHeight==capa.scrollHeight){
+                    boton.style.display="block";
+                }else{
+                    boton.style.display="none";
+                }
+            });
+
+            boton.addEventListener("click", function eliminar(){
+                document.body.removeChild(capa);
+            });
+        </script>
+    </body>
+</html>

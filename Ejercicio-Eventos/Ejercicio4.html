@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eventos</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <p>Velocidad <strong id="str">0</strong></p>
+        <script>
+            var str=document.getElementById("str");
+            var velocidad=0;
+            document.body.addEventListener("keydown", sumar);
+
+            function sumar(evento){
+                if(evento.key=="ArrowUp" && velocidad<120){
+                    velocidad++;
+                    str.textContent=velocidad;
+                }
+                if(evento.key=="ArrowDown" && velocidad>0){
+                    velocidad--;
+                    str.textContent=velocidad;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 4 - Strings</title>
+    </head>
+    <body>
+        <script>
+            //Ejercicio 1
+            /*
+            var palabra=prompt("Inserta una palabra: ");
+            var clave=parseInt(prompt("Inserta una clave: "));
+            var resultado="";
+
+            for(let i=0;i<palabra.length;i++){
+                resultado=resultado+(String.fromCharCode(palabra.charCodeAt(i)+clave));
+            }
+
+            console.log(resultado);
+            */
+            
+            //Ejercicio 2
+            /*
+            var inversa="";
+            var palabra=prompt("Inserta una palabra: ");
+
+            console.log(palindromo(palabra));
+            
+            function palindromo(palabra){
+                palabra=palabra.toLowerCase();
+                do{
+                var palabra2=palabra;
+
+                palabra=palabra.replace("á", "a");
+                palabra=palabra.replace("é", "e");
+                palabra=palabra.replace("í", "i");
+                palabra=palabra.replace("ó", "o");
+                palabra=palabra.replace("ú", "u");
+
+                palabra=palabra.replace("à", "a");
+                palabra=palabra.replace("è", "e");
+                palabra=palabra.replace("ì", "i");
+                palabra=palabra.replace("ò", "o");
+                palabra=palabra.replace("ù", "u");
+
+                palabra=palabra.replace("ä", "a");
+                palabra=palabra.replace("ë", "e");
+                palabra=palabra.replace("ï", "i");
+                palabra=palabra.replace("ö", "o");
+                palabra=palabra.replace("ü", "u");
+
+                palabra=palabra.replace("?", "");
+                palabra=palabra.replace("¿", "");
+                palabra=palabra.replace("¡", "");
+                palabra=palabra.replace("!", "");
+                palabra=palabra.replace("(", "");
+                palabra=palabra.replace(")", "");
+                palabra=palabra.replace(".", "");
+                palabra=palabra.replace(",", "");
+
+                palabra=palabra.replace(" ", "");
+                }while(palabra!=palabra2);
+
+                for(let i=palabra.length-1;i>=0;i--){
+                    inversa=inversa+palabra[i];
+                }
+
+                if(palabra==inversa){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            */
+
+            //Ejercicio 3
+            var palabras=[];
+            var palabra;
+            var i=0;
+
+            palabra=prompt("Introduzca una palabra: ");
+            while(palabra!=null){
+                if(palabra!=null){
+                    palabras[i]=palabra;
+                }
+                i++;
+                palabra=prompt("Introduzca otra palabra: ");
+            }
+
+            console.log(anagrama(palabras));
+
+
+            function anagrama(palabras){
+                var salida=true;
+                for(let i=0;i<palabras.length;i++){
+                    palabras[i]=palabras[i].split("").sort().join("");
+                }
+                
+                for(let i=1;i<palabras.length;i++){
+                    if(palabras[0]!=palabras[i]){
+                        salida=false;
+                    }
+                }
+                return salida;
+            }
+        </script>
+    </body>
+</html>

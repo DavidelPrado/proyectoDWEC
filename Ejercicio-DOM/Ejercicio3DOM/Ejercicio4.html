@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Document Object Model</title>
+        <script>
+            window.addEventListener("load", inicio);
+
+            function inicio(){
+                let fecha=new Date();
+
+                let horas=fecha.getHours();
+                let minutos=fecha.getMinutes();
+                let segundos=fecha.getSeconds();
+
+                document.write(partir(horas)+":"+partir(minutos)+":"+partir(segundos));
+            }
+
+            function partir(valor){
+                if(valor.toString().length==2){
+                    let uno=valor.toString().slice(0,1);
+                    let dos=valor.toString().slice(1,2);
+                    return (imagen(parseInt(uno))+""+imagen(parseInt(dos)));
+                }else{
+                    return imagen(valor);
+                }
+            }
+
+            function imagen(valor){
+                switch(valor){
+                    case 0:
+                        return ("<img src='./img/0.png'>");
+                        break;
+                    case 1:
+                        return ("<img src='./img/1.png'>");
+                        break;
+                    case 2:
+                        return ("<img src='./img/2.png'>");
+                        break;
+                    case 3:
+                        return ("<img src='./img/3.png'>");
+                        break;
+                    case 4:
+                        return ("<img src='./img/4.png'>");
+                        break;
+                    case 5:
+                        return ("<img src='./img/5.png'>");
+                        break;
+                    case 6:
+                        return ("<img src='./img/6.jpg'>");
+                        break;
+                    case 7:
+                        return ("<img src='./img/7.jpg'>");
+                        break;
+                    case 8:
+                        return ("<img src='./img/8.jpg'>");
+                        break;
+                    case 9:
+                        return ("<img src='./img/9.png'>");
+                        break;
+                }
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

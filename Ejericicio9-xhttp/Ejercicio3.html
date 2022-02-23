@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 9-3 - Promesas</title>
+        <style>
+            form{
+                text-align: center;
+            }
+            #tabla{
+                display: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <form>
+            <button type="button" id="btnCargar">Cargar catalogo</button>
+            <select id="select">
+                <option value="COUNTRY">Pais</option>
+                <option value="COMPANY">Discografia</option>
+                <option value="PRICE">Precio</option>
+                <option value="YEAR">Año</option>
+            </select>
+        </form>
+
+        <table id="tabla">
+            <tr id="head">
+                <th>TITLE</th>
+                <th>ARTIST</th>
+                <th></th>
+            </tr>
+        </table>
+        <script>
+            var tabla=document.getElementById("tabla");
+            var btnCargar=document.getElementById("btnCargar");
+            var select=document.getElementById("select");
+
+            var xhttp=new XMLHttpRequest();
+        
+            xhttp.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    var catalogo=JSON.parse(xhttp.responseText);
+                    
+                    for(let i=0;i<catalogo.CATALOG.CD.length;i++){
+                        let titulo=catalogo.CATALOG.CD[i].TITLE;
+                        let artista=catalogo.CATALOG.CD[i].ARTIST;
+
+                        var tr=document.createElement("tr");
+                        var td1=document.createElement("td");
+                        var td2=document.createElement("td");
+                        var td3=document.createElement("td");
+
+                        td1.innerHTML=titulo;
+                        td2.innerHTML=artista;
+                        td3.innerHTML="";
+
+                        tabla.appendChild(tr);
+                        tr.appendChild(td1);
+                        tr.appendChild(td2);
+                        tr.appendChild(td3);
+                    }
+                }
+            };
+
+            xhttp.open("GET", "catalogo.json");
+            xhttp.send();
+
+            btnCargar.addEventListener("click", function(){
+                tabla.style.display="block";
+            });
+
+            select.addEventListener("change", function(valor){
+                let tr=document.getElementById("head");
+                tr.lastElementChild.innerHTML=select.value;
+                
+                for(let i=0;i<catalogo.CATALOG.CD.length;i++){
+                    let valor=select.value;
+                    let dato=catalogo.CATALOG.CD[i].valor.textContent;
+
+                    let tr=tabla.getElementsByTagName("tr")[i+1];
+                    tr.lastElementChild.innerHTML=dato;
+                }
+            });
+        </script>
+    </body>
+</html>

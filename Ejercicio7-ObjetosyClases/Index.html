@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 7 - Objetos y Clases</title>
+    </head>
+    <body>
+        <script>
+            //Ejercicio 1
+            /*
+            class Punto{
+                constructor(x=0, y=0){
+                    this.x=x;
+                    this.y=y;
+                }
+
+                cambiar(x, y){
+                    this.x=x;
+                    this.y=y;
+                }
+
+                copia(){
+                   return new Punto(this.x, this.y); 
+                }
+
+                iguales(oPunto){
+                    if(this.x==oPunto.x && this.y==oPunto.y){
+                        return "Son iguales";
+                    }else{
+                        return "Son diferentes";
+                    }
+                }
+
+                suma(oPunto){
+                    if(oPunto instanceof Punto){
+                        return new Punto(this.x+oPunto.x, this.y+oPunto.y);
+                    }
+                }
+
+                obtenerDistancia(oPunto){
+                    if(oPunto instanceof Punto){
+                        return Math.sqrt((Math.pow((oPunto.x-this.x), 2))+(Math.pow((oPunto.y-this.y), 2)));
+                    }
+                }
+
+                toString(){
+                    return "("+this.x+", "+this.y+")";
+                }
+            }
+
+            const punto=new Punto(1,2);
+            console.log("Punto: "+punto.toString());
+
+            punto.cambiar(2,3);
+            console.log("Cambiar: "+punto.toString());
+
+            const copia=punto.copia();
+            console.log("Copia: "+copia.toString());
+
+            const oPunto=new Punto(3,6);
+            console.log(punto.iguales(oPunto));
+
+            console.log("Suma: "+punto.suma(oPunto));
+
+            console.log("Distancia: "+punto.obtenerDistancia(oPunto));
+            */
+
+            //Ejercicio 2
+            /*
+            Array.prototype.mediaAritmetica=function(){
+                var suma=0;
+
+                for(let i=0;i<array.length;i++){
+                    suma=suma+array[i];
+                }
+
+                return suma/array.length;
+            }
+
+            var array=[2,3,4,5,6];
+            console.log(array.mediaAritmetica());
+            */
+
+            //Ejercicio 3
+            /*
+            Math.mcm=function(a,b){
+                return a*b/Math.mcd(a,b);
+            }
+            
+            Math.mcd=function(a,b){
+                if((a%b)==0){
+                    return b;
+                }else{
+                    return Math.mcd(b,a%b);
+                }
+            }
+
+            class Fraccion{
+                #numerador;
+                #denominador;
+
+                constructor(numerador, denominador){
+                    this.#numerador=numerador;
+                    this.#denominador=denominador;
+                }
+                
+                getNumerador(){
+                    return this.#numerador;
+                }
+                getDenominador(){
+                    return this.#denominador;
+                }
+
+                setNumerador(numerador){
+                    this.#numerador=parseInt(numerador);
+                }
+                setDenominador(denominador){
+                    this.#denominador=parseInt(denominador);
+                }
+
+                cambiarFraccion(numerador, denominador){
+                    this.setNumerador(numerador);
+                    this.setDenominador(denominador);
+                }
+
+                toString(){
+                    return this.#numerador+"/"+this.#denominador;
+                }
+
+                simplificar(){
+                    let mcd=Math.mcd(this.#numerador,this.#denominador);
+                    this.#numerador=this.#numerador/mcd;
+                    this.#denominador=this.#denominador/mcd;
+                }
+                
+                suma(f){
+                    let mcm=Math.mcm(this.#denominador,f.getDenominador());
+                    let denominadorResultado=mcm;
+                    let numeradorResultado=(mcm/this.#denominador)*this.#numerador+(mcm/f.getDenominador())*f.getNumerador();
+
+                    let resultado=new Fraccion(numeradorResultado, denominadorResultado);
+                    resultado.simplificar();
+                    return resultado;
+                }
+
+                resta(f){
+                    let mcm=Math.mcm(this.#denominador,f.getDenominador());
+                    let denominadorResultado=mcm;
+                    let numeradorResultado=(mcm/this.#denominador)*this.#numerador+-(mcm/f.getDenominador())*f.getNumerador();
+
+                    let resultado=new Fraccion(numeradorResultado, denominadorResultado);
+                    resultado.simplificar();
+                    return resultado;
+                }
+
+                multiplicacion(f){
+                    let resultado=new Fraccion((this.#numerador*f.getNumerador()), (this.#denominador*f.getDenominador()));
+                    resultado.simplificar();
+                    return resultado;
+                }
+
+                division(f){
+                    let resultado=new Fraccion((this.#numerador*f.getDenominador()), (this.#denominador*f.getNumerador()));
+                    resultado.simplificar();
+                    return resultado;
+                }
+            }
+            
+            var f1=new Fraccion(2,3);
+            var f2=new Fraccion(5,6);
+
+            console.log(f1.getNumerador());
+            console.log(f1.getDenominador());
+
+            f1.setNumerador(3);
+            f1.setDenominador(4);
+            console.log(f1.toString());
+
+            f1.cambiarFraccion(2,3);
+            console.log(f1.toString());
+
+            console.log(f1.suma(f2).toString());
+            console.log(f1.resta(f2).toString());
+            console.log(f1.multiplicacion(f2).toString());
+            console.log(f1.division(f2).toString());
+            */
+
+            //Ejercicio 4
+            
+            class Cartas{
+                constructor(palo, carta){
+                    if(palo>0 && palo<5 && carta>0 && carta<11){
+                        this.palo=palo;
+                        this.carta=carta;
+                    }else{
+                        return null;
+                    }
+                    
+                }
+
+                darValor(palo, carta){
+                    if(palo>0 && palo<5 && carta>0 && carta<11){
+                        this.palo=palo;
+                        this.carta=carta;
+                    }else{
+                        return null;
+                    }
+                }
+
+                toString(){
+                    var rPalo;
+                    var rCarta;
+
+                    switch(parseInt(this.palo)){
+                        case 1:
+                            rPalo="oros";
+                            break;
+                        case 2:
+                            rPalo="espadas";
+                            break;
+                        case 3:
+                            rPalo="bastos";
+                            break;
+                        case 4:
+                            rPalo="copas";
+                            break;
+                    }
+
+                    switch(parseInt(this.carta)){
+                        case 1:
+                            rCarta="As";
+                            break;
+                        case 8:
+                            rCarta="Sota";
+                            break;
+                        case 9:
+                            rCarta="Caballo";
+                            break;
+                        case 10:
+                            rCarta="Rey";
+                            break;
+                        default:
+                            rCarta=this.carta;
+                            break;
+                    }
+
+                    return(rCarta+" de "+rPalo);
+                }
+            }
+
+            /*
+            var palo=prompt("Inserta palo:(1-4)");
+            var carta=prompt("Inserta carta:(1-10)");
+            var carta=new Cartas(palo, carta);
+            console.log(carta.toString());
+            */
+
+            
+            class Baraja{
+                constructor(){
+                    this.cartas=[];
+                    for(let palo=1;palo<5;palo++){
+                        for(let carta=1;carta<11;carta++){
+                            this.cartas.push(new Cartas(palo, carta));
+                        }
+                    }
+                }
+
+                barajar(){
+                    for(let i=0;i<40;i++){
+                        const j=Math.floor(Math.random()*(i+1));
+                        [this.cartas[i], this.cartas[j]]=[this.cartas[j], this.cartas[i]];
+                    }
+                }
+
+                toString(){
+                    console.log(this.cartas.toString());
+                }
+            }
+
+            var baraja=new Baraja();
+            baraja.barajar();
+            baraja.toString();
+
+            
+            
+        </script>
+    </body>
+</html>

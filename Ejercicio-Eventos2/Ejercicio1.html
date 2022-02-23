@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eventos2</title>
+        <style>
+            body{
+                display: flex;
+                flex-flow: row;
+            }
+            div{
+                width: 200px;
+                height: 100px;
+                border: 1px solid black;
+                margin: auto;
+                margin-top: 100px;
+            }
+            #capa1{
+                background-color: palegoldenrod;
+            }
+        </style>
+    </head>
+    <body>
+        <div draggable="true" id="capa1">Soy arrastrable</div>
+        <div id="capa2">Soy el destino</div>
+        <script>
+            var capa1=document.getElementById("capa1");
+            var capa2=document.getElementById("capa2");
+
+            capa1.addEventListener("drag", function(){
+                capa1.style.opacity="0.5";
+            });
+
+            capa1.addEventListener("dragend", function(){
+                capa1.style.opacity="1";
+            });
+            
+            capa2.addEventListener("dragover", function(evento){
+                evento.preventDefault();
+                capa2.style.backgroundColor="red";
+            });
+            
+            capa2.addEventListener("dragleave", function(){
+                capa2.style.backgroundColor="";
+            });
+
+            capa2.addEventListener("drop", function(evento){
+                evento.preventDefault();
+                document.body.removeChild(capa1);
+                capa2.style.backgroundColor="";
+                capa2.textContent="¡Lo has logrado!";
+            });
+        </script>
+    </body>
+</html>

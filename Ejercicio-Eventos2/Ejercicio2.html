@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eventos2</title>
+        <style>
+            .container{
+                display: flex;
+            }
+            h1{
+               text-align: center;
+               background-color: darkorange;
+               color: white;
+            }
+            form{
+                margin-left: 30px;
+            }
+            textarea{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>INFORME INCIDENCIA</h1>
+        <div class="container">
+            <img id="img" src="http://picsum.photos/id/500/300/200">
+            <form>
+                <label>Tipo de incidencia</label>
+                <select id="select">
+                    <option value="0">Distribución</option>
+                    <option value="1">Oficina</option>
+                    <option value="2">Producción</option>
+                </select>
+                <br>
+                <label for="nSerie">Número de serie</label>
+                <input type="text" id="nSerie">
+                <br>
+                <button id="mostrar" type="button">Mostrar Descripción</button>
+                <br>
+                <textarea></textarea>
+                <br>
+                <button id="enviar" type="button">Enviar datos</button>
+            </form>
+        </div>
+
+        <script>
+            var select=document.getElementById("select");
+            var img=document.getElementById("img");
+
+            select.addEventListener("change", function(select){
+                //img.setAttribute("src", "http://picsum.photos/id/50"+select+"/300/200");
+            });
+
+
+            var mostrar=document.getElementById("mostrar");
+            var textArea=document.getElementsByTagName("textarea")[0];
+
+            mostrar.addEventListener("click", function(evento){
+                evento.preventDefault();
+                textArea.style.display="block";
+            });
+
+            var enviar=document.getElementById("enviar");
+            var nSerie=document.getElementById("nSerie");
+
+            enviar.addEventListener("clic", function(evento){
+                evento.preventDefault();
+                let expr=/^[0-9]{3}[A-Z]{4}[12A]$/;
+                if(!expr.test(nSerie.textContent)){
+                    nSerie.style.border="1px solid red";
+                }
+            });
+        </script>
+    </body>
+</html>

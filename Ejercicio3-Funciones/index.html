@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 3</title>
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+            td{
+                border-style: solid;
+                width: 50px;
+                height: 50px;
+            }
+            p{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            //Ejercicio 1
+            /*
+            //factorial iterativo
+            function fibonacci(num){
+                let array=[0,1];
+                for (let i=0;i<num;i++) {
+                    array[i+2]=array[i+1]+array[i];
+                }
+
+                return array[num];
+            }
+
+            let num=prompt("Numero de la serie a mostrar: ");
+            console.log(fibonacci(num));
+
+
+            //factorial recursivo
+            function fibonacciR(num){
+                if(num==0){
+                    return 0;
+                }else{
+                    if(num==1){
+                        return 1;
+                    }else{
+                        return fibonacciR(num-1)+fibonacciR(num-2);
+                    }
+                }
+            }
+
+            num=prompt("Numero de la serie a mostrar: ");
+            console.log(fibonacciR(num));
+            */
+
+            
+            //Ejercicio 2
+            /*
+            var aPalabras=Array();
+            let i=0;
+
+            do{
+                palabra=prompt("Inserte una palabra: ");
+                aPalabras[i]=palabra;
+                i++;
+            }while(palabra!=null)
+
+            function mapa(array){
+                const mapa = new Map();
+
+                for (let i=0;i<array.length-1;i++){
+                    if(mapa.has(array[i])){
+                        mapa.set(array[i], (mapa.get(array[i])+1));
+                    }else{
+                        mapa.set(array[i], 1);
+                    }
+                }
+
+                return mapa;
+            }
+
+            console.log(mapa(aPalabras));
+            */
+            
+            //Ejercicio 3
+            tamano=prompt("Tamaño del tablero: ");
+            nMinas=prompt("Inserte numero de minas: ");
+            var tablero=new Array(tamano);
+            
+            function pMinas(array){
+                for(let i=0;i<tamano;i++) {
+                    array[i]=new Array(tamano);
+                    for (let j=0;j<tamano;j++) {
+                        array[i][j]=0;
+                    }
+                }
+
+                for(let i=0;i<nMinas;i++){
+                    let fila=0;
+                    let col=0;
+                    do{
+                        fila=parseInt(Math.random()*tamano);
+                        col=parseInt(Math.random()*tamano);
+                    }while(array[fila][col]==10)
+                    array[fila][col]=10;
+                }
+
+                array=numeros(array);
+
+                return array;
+            }
+            
+            function numeros(array){
+                for(let i=0;i<array.length;i++){
+                   for(let j=0;j<array.length;j++){
+                        if(array[i][j]==0){
+                            let minas=0;
+                            if(i>0 && array[i-1][j]==10){
+                                minas++;
+                            }
+                            if(i>0 && j>0 && array[i-1][j-1]==10){
+                                minas++;
+                            }
+                            if(i>0 && j<tamano-1 && array[i-1][j+1]==10){
+                                minas++;
+                            }
+                            if(i<tamano-1 && array[i+1][j]==10){
+                                minas++;
+                            }
+                            if(i<tamano-1 && j>0 && array[i+1][j-1]==10){
+                                minas++;
+                            }
+                            if(i<tamano-1 && j<tamano-1 && array[i+1][j+1]==10){
+                                minas++;
+                            }
+                            if(j>0 && array[i][j-1]==10){
+                                minas++;
+                            }
+                            if(j<tamano-1 && array[i][j+1]==10){
+                                minas++;
+                            }
+                            array[i][j]=minas;
+                        }
+                   } 
+                }
+                return array;
+            }
+
+            function dibujo(array){
+                document.write("<table>");
+                for (let i=0;i<tamano;i++) {
+                    document.write("<tr>");
+                    for (let j=0;j<tamano;j++) {
+                        document.write("<td>");
+
+                            if(tablero[i][j]==10){
+                                document.write("<p style='color:blue;'>X</p>");
+                            }else{
+                                if(tablero[i][j]==0){
+                                }else{
+                                    document.write("<p>"+tablero[i][j]+"</p>");
+                                }
+                            }
+                            
+                        document.write("</td>");
+                    }
+                    document.write("</tr>");
+                }
+                document.write("</table>");
+            }
+
+            tablero=pMinas(tablero);
+            dibujo(tablero);
+        </script>
+    </body>
+</html>

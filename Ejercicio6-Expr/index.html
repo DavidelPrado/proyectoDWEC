@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 6 - Expresiones regulares</title>
+    </head>
+    <body>
+        <script>
+            //Ejercicio 1
+            /*
+            var codP=prompt("Introduzca codigo postal: ");
+
+            let expr=/^([0-4][0-9])|^(5[0-2]) [0-9]{3}$/;
+            console.log(expr.test(codP));
+            */
+
+            //Ejercicio 2
+            /*
+            let archivo=prompt("Introduzca nombre del archivo: ");
+
+            let expr=/\.(pdf$|docx)$/;
+            console.log(expr.test(archivo));
+            */
+
+            //Ejercicio 3
+            var operacion=0;
+            var resto="TRWAGMYFPDXBNJZSQVHLCKE";
+
+            let nif=prompt("Introduzca DNI: ");
+
+            let expr=/^[XYZ0-9][0-9]{7}[A-Z]$/;
+            
+            if(expr.test(nif)){
+                if(nif[0]=="X"){
+                    nif[0]=0;
+                }
+                if(nif[0]=="Y"){
+                    nif[0]=1;
+                }
+                if(nif[0]=="Z"){
+                    nif[0]=2;
+                }
+                operacion=nif.slice(0,8)%23;
+            }
+
+            if(resto[operacion]==nif[8]){
+                document.write("El dni es correcto");
+            }else{
+                document.write("El dni es incorrecto");
+            }
+        </script>
+    </body>
+</html>
